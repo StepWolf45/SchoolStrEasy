@@ -1,1 +1,2 @@
 # SchoolStrEasy
+Status -- Unfinished solution
