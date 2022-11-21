@@ -6,8 +6,11 @@ using namespace std;
 
 string itc_even_place(string str) {
 	string new_str = "";
+  if (itc_len(str)<=1){
+      return -1;
+  }
 	for (int i = 0; i < itc_len(str); i++){
-		if (i % 2 == 0) {
+		if (i % 2 != 0) {
 			new_str += str[i]; //?????
 		}
 	}
@@ -22,29 +25,28 @@ double itc_percent_lower_uppercase(string str) {
 		if (str[i] >= 'a' && str[i] <= 'z')
 			low++;
 	}
-	return (up / low) * 100; //?????
+	return (up / low) * 100; 
 }
 string itc_reverse_str(string str) {
-	string new_str="";
-	for (int i = itc_len(str); i >= 0 ; i--)
-	{
-		new_str += str[i];
-	}
-	return new_str;
+  string new_str = "";
+  for (int i = itc_len(str) - 1; i >= 0; i--) {
+    new_str += str[i];
+  }
+  return new_str;
 }
+
 string itc_slice_str(string str, int start, int end) {
-	string new_str = "";
-	long long length = itc_len(str);
-	if (end > length) {
-		for (int i = start; i <= length; i++)
-		{
-			new_str += str[i];//?????
-		}
-	
-	}
-
-
+  string new_str="";
+  long long length = itc_len(str);
+  if (start < 0)
+    start = 0;
+  if (start > end)
+    return str;
+  for (long long i = start; i <= end && i < length; i++)
+    new_str += str[i];
+  return new_str;
 }
+
 bool itc_equal_reverse(string str) {
 	return itc_reverse_str(str) == str;
 
