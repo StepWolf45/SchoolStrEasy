@@ -5,22 +5,27 @@
 using namespace std;
 
 string itc_cmp_str(string str1, string str2, int num) {
-  long long length = itc_len(str1);
-  string new_str="";
-  if (num > length)
+  string time_str, final_str;
+  long long length1 = itc_len(str1),
+  long long length2 = itc_len(str2);
+  if ((length1 < num) || (num < 0)){
         return str1;
-  if (num == length)
-        return str1 + str2;
-  for (long long i = 0; i < length; i++) {
-    if (i != num)
-        new_str += str1[i];
-    else {
-        new_str += str2;
-        new_str += str1[i];
-    }
   }
-  return new_str;
+  for (int i = 0; i < num; i++){
+    time_str += str1[i];
+  }
+  for (int i = 0; i < length2; i++){
+    time_str += str2[i];
+  }
+  for (int i = num; i<length1; i++) {
+    time_str += str1[i];
+  }
+  for (int i = 0; i < length1; i++) {
+    final_str += str[i];
+  }
+  return final_str;
 }
+
 string itc_three_str(string str1, string str2, string str3){
         long long start;
         while (itc_find_str(str1, str2) != -1) {
