@@ -6,7 +6,7 @@ using namespace std;
 
 string itc_cmp_str(string str1, string str2, int num) {
   string time_str, final_str;
-  long long length1 = itc_len(str1),
+  long long length1 = itc_len(str1);
   long long length2 = itc_len(str2);
   if ((length1 < num) || (num < 0)){
         return str1;
@@ -21,7 +21,7 @@ string itc_cmp_str(string str1, string str2, int num) {
     time_str += str1[i];
   }
   for (int i = 0; i < length1; i++) {
-    final_str += str[i];
+    final_str += time_str[i];
   }
   return final_str;
 }
